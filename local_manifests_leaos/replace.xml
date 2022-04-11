@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 <remote name="leaos" fetch="https://github.com/iceows/" />
+<remove-project name="LineageOS/android_packages_apps_Updater" />
 </manifest>
+
