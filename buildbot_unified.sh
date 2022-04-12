@@ -5,7 +5,7 @@ echo "Executing in 5 seconds - CTRL-C to exit"
 echo ""
 sleep 5
 
-if [ $# -lt 2 ]
+if [ $# -lt 1 ]
 then
     echo "Not enough arguments - exiting"
     echo ""
@@ -13,30 +13,17 @@ then
 fi
 
 MODE=${1}
-if [ ${MODE} != "device" ] && [ ${MODE} != "treble" ]
-then
-    echo "Invalid mode - exiting"
-    echo ""
-    exit 1
-fi
+
 
 NOSYNC=false
 PERSONAL=false
-ICEOWS=false
-for var in "${@:2}"
+ICEOWS=true
+for var in "${@:1}"
 do
     if [ ${var} == "nosync" ]
     then
         NOSYNC=true
     fi
-    if [ ${var} == "personal" ]
-    then
-        PERSONAL=true
-    fi
-    if [ ${var} == "iceows" ]
-    then
-        ICEOWS=true
-    fi    
 done
 
 echo "Building with NoSync : $NOSYNC - Personal patch : $PERSONAL - Iceows patch : $ICEOWS - Mode : ${MODE}"
@@ -150,9 +137,9 @@ else
     echo ""
 fi
 
-for var in "${@:2}"
+for var in "${@:1}"
 do
-    if [ ${var} == "nosync" ] || [ ${var} == "personal" ]  || [ ${var} == "iceows" ]
+    if [ ${var} == "nosync" ]
     then
         continue
     fi
