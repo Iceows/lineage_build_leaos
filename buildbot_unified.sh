@@ -13,12 +13,10 @@ then
 fi
 
 MODE=${1}
-
-
 NOSYNC=false
 PERSONAL=false
 ICEOWS=true
-for var in "${@:1}"
+for var in "${@:2}"
 do
     if [ ${var} == "nosync" ]
     then
@@ -26,7 +24,7 @@ do
     fi
 done
 
-echo "Building with NoSync : $NOSYNC - Personal patch : $PERSONAL - Iceows patch : $ICEOWS - Mode : ${MODE}"
+echo "Building with NoSync : $NOSYNC - Mode : ${MODE}"
 
 
 
@@ -137,7 +135,7 @@ else
     echo ""
 fi
 
-for var in "${@:1}"
+for var in "${@:2}"
 do
     if [ ${var} == "nosync" ]
     then
