@@ -43,14 +43,18 @@ BUILD_DATE="$(date +%Y%m%d)"
 WITHOUT_CHECK_API=true
 WITH_SU=true
 
+repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
+
 prep_build() {
 	echo "Preparing local manifests"
+	rm -rf .repo/local_manifests
 	mkdir -p .repo/local_manifests
 	cp ./lineage_build_leaos/local_manifests_leaos/*.xml .repo/local_manifests
 	echo ""
 
 	echo "Syncing repos"
-	repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
+	repo sync -j$(nproc --all) -c -q --force-sync --no-tags --no-clone-bundle --optimized-fetch --prune
+
 	echo ""
 
 	echo "Setting up build environment"
