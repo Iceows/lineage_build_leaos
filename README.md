@@ -18,18 +18,13 @@ Initialize your LineageOS workspace:
 
 Clone both this and the patches repos:
 
-    git clone https://github.com/iceows/lineage_build_unified lineage_build_unified -b lineage-18.1
-    git clone https://github.com/iceows/lineage_patches_unified lineage_patches_unified -b lineage-18.1
+    git clone https://github.com/iceows/lineage_build_leaos lineage_build_leaos -b lineage-18.1
+    git clone https://github.com/iceows/lineage_patches_leaos lineage_patches_leaos -b lineage-18.1
 
 Finally, start the build script (Dynamic root):
 
-    bash lineage_build_unified/buildbot_unified.sh treble 64BZ
-    
-or to include AndyCG patch
-    bash lineage_build_unified/buildbot_unified.sh treble personal iceows 64BZ
+    bash lineage_build_leaos/build.sh treble 64BZ
 
-or to include also Iceows patch
-    bash lineage_build_unified/buildbot_unified.sh treble personal iceows 64BZ
 
 Be sure to update the cloned repos from time to time!
 
@@ -37,12 +32,12 @@ Be sure to update the cloned repos from time to time!
 
 A-only targets for Huawei hi6250 re generated from AB images instead of source-built - refer to [huawei-creator](https://github.com/iceows/huawei-creator).
 
-	sudo ./run-huawei-aonly.sh "myimage.img"  "LeaOS" 
+	sudo ./run-huawei-aonly.sh "myimage.img"  "LeaOS" "PRA-LX1"
 
 ---
 
 This script is also used to make builds without sync repo. To do so add nosync in the command build line.
 
-    bash lineage_build_unified/buildbot_unified.sh treble nosync personal iceows 64BZ
+    bash lineage_build_leaos/build.sh treble nosync 64BZ
 
 
