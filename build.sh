@@ -103,22 +103,16 @@ build_device() {
 
 build_treble() {
     case "${1}" in
-        ("32B") TARGET=treble_arm_bvS;;
-        ("32BZ") TARGET=treble_arm_bvZ;;
-        ("32BN") TARGET=treble_arm_bvN;;
-        ("A64B") TARGET=treble_a64_bvS;;
-        ("A64BZ") TARGET=treble_a64_bvZ;;
-        ("A64BN") TARGET=treble_a64_bvN;;
-        ("64B") TARGET=treble_arm64_bvS;;
-        ("64BZ") TARGET=treble_arm64_bvZ;;
-        ("64BN") TARGET=treble_arm64_bvN;;
+        ("64BVS") TARGET=treble_arm64_bvS;;
+        ("64BVZ") TARGET=treble_arm64_bvZ;;
+        ("64BVN") TARGET=treble_arm64_bvN;;
         (*) echo "Invalid target - exiting"; exit 1;;
     esac
     lunch ${TARGET}-userdebug
     make installclean
     make -j$(nproc --all) systemimage
     make vndk-test-sepolicy
-    mv $OUT/system.img ~/build-output/lineage-18.1-$BUILD_DATE-UNOFFICIAL-${TARGET}$(${PERSONAL} && echo "-personal" || echo "").img
+    mv $OUT/system.img ~/build-output/LeaOS-$BUILD_DATE-${TARGET}.img
 }
 
 if ${NOSYNC}
