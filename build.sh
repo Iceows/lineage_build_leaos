@@ -142,7 +142,7 @@ do
     echo "Starting $(${PERSONAL} && echo "personal " || echo "")build for ${MODE} ${var}"
     build_${MODE} ${var}
 done
-ls ~/build-output | grep 'lineage' || true
+ls ~/build-output | grep 'LeaOS' || true
 
 END=`date +%s`
 ELAPSEDM=$(($(($END-$START))/60))
