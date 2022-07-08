@@ -85,6 +85,8 @@ prep_device() {
 
 prep_treble() {
     echo "Applying patch treble prerequisite and phh"
+    apply_patches patches_treble_prerequisite
+    apply_patches patches_treble_phh
 
 }
 
@@ -137,9 +139,10 @@ else
     prep_build
     echo "Applying patches"
     prep_treble
-    apply_patches lineage
-    apply_patches generic
-    apply_patches personal
+    apply_patches patches_platform
+    apply_patches patches_treble
+    apply_patches patches_platform_personal
+    apply_patches patches_treble_personal
     finalize_treble
     echo ""
 fi
