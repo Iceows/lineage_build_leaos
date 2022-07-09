@@ -43,7 +43,7 @@ BUILD_DATE="$(date +%Y%m%d)"
 WITHOUT_CHECK_API=true
 WITH_SU=true
 
-repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
+repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
 
 prep_build() {
     echo "Preparing local manifests"
@@ -76,7 +76,7 @@ prep_build() {
 
 apply_patches() {
     echo "Applying patch group ${1}"
-    bash ./treble_experimentations/apply-patches.sh ./lineage_patches_leaos/${1}
+    bash ./lineage_build_leaos/apply_patches.sh ./lineage_patches_leaos/${1}
 }
 
 prep_device() {
@@ -107,25 +107,25 @@ build_device() {
     then
         lunch lineage_arm64-userdebug
         make -j$(nproc --all) systemimage
-        mv $OUT/system.img ~/build-output/lineage-18.1-$BUILD_DATE-UNOFFICIAL-arm64$(${PERSONAL} && echo "-personal" || echo "").img
+        mv $OUT/system.img ~/build-output/lineage-19.1-$BUILD_DATE-UNOFFICIAL-arm64$(${PERSONAL} && echo "-personal" || echo "").img
     else
         brunch ${1}
-        mv $OUT/lineage-*.zip ~/build-output/lineage-18.1-$BUILD_DATE-UNOFFICIAL-${1}$($PERSONAL && echo "-personal" || echo "").zip
+        mv $OUT/lineage-*.zip ~/build-output/lineage-19.1-$BUILD_DATE-UNOFFICIAL-${1}$($PERSONAL && echo "-personal" || echo "").zip
     fi
 }
 
 build_treble() {
     case "${1}" in
-        ("64BVS") TARGET=treble_arm64_bvS;;
-        ("64BVZ") TARGET=treble_arm64_bvZ;;
-        ("64BVN") TARGET=treble_arm64_bvN;;
+        ("64BVS") TARGET=arm64_bvS;;
+        ("64BVZ") TARGET=arm64_bvZ;;
+        ("64BVN") TARGET=arm64_bvN;;
         (*) echo "Invalid target - exiting"; exit 1;;
     esac
-    lunch ${TARGET}-userdebug
+    lunch lineage_${TARGET}-userdebug
     make installclean
-    make -j$(nproc --all) systemimage
+    make -j6 systemimage
+    mv $OUT/system.img ~/build-output/LeaOS-A12-$BUILD_DATE-${TARGET}.img
     make vndk-test-sepolicy
-    mv $OUT/system.img ~/build-output/LeaOS-$BUILD_DATE-${TARGET}.img
 }
 
 if ${NOSYNC}
