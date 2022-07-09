@@ -23,7 +23,7 @@ Clone both this and the patches repos:
 
 Finally, start the build script (Dynamic root):
 
-    bash lineage_build_leaos/build.sh treble 64BZ
+    bash lineage_build_leaos/build.sh treble 64BVZ
 
 
 Be sure to update the cloned repos from time to time!
