@@ -112,7 +112,7 @@ build_treble() {
     make installclean
     make -j$(nproc --all) systemimage
     make vndk-test-sepolicy
-    mv $OUT/system.img ~/build-output/LeaOS-$BUILD_DATE-${TARGET}.img
+    mv $OUT/system.img ~/build-output/LeaOS-18.1-$BUILD_DATE-${TARGET}.img
 }
 
 if ${NOSYNC}
