@@ -1,6 +1,6 @@
 #!/bin/bash
 echo ""
-echo "LineageOS 18.x Unified Buildbot - LeaOS version"
+echo "LineageOS 19.x Unified Buildbot - LeaOS version"
 echo "Executing in 5 seconds - CTRL-C to exit"
 echo ""
 sleep 5
@@ -124,7 +124,7 @@ build_treble() {
     lunch lineage_${TARGET}-userdebug
     make installclean
     make -j6 systemimage
-    mv $OUT/system.img ~/build-output/LeaOS-A12-$BUILD_DATE-${TARGET}.img
+    mv $OUT/system.img ~/build-output/LeaOS-19.1-$BUILD_DATE-${TARGET}.img
     make vndk-test-sepolicy
 }
 
