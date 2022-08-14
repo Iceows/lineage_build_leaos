@@ -14,16 +14,16 @@ Clone the modified treble_experimentations repo there:
 
 Initialize your LineageOS workspace:
 
-    repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
+    repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
 
 Clone both this and the patches repos:
 
-    git clone https://github.com/iceows/lineage_build_leaos lineage_build_leaos -b lineage-18.1
-    git clone https://github.com/iceows/lineage_patches_leaos lineage_patches_leaos -b lineage-18.1
+    git clone https://github.com/iceows/lineage_build_leaos lineage_build_leaos -b lineage-19.1
+    git clone https://github.com/iceows/lineage_patches_leaos lineage_patches_leaos -b lineage-19.1
 
 Finally, start the build script (Dynamic root):
 
-    bash lineage_build_leaos/build.sh treble 64BZ
+    bash lineage_build_leaos/build.sh treble 64BVZ
 
 
 Be sure to update the cloned repos from time to time!
