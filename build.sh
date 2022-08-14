@@ -52,7 +52,7 @@ prep_build() {
     echo ""
 
     echo "Syncing repos"
-    repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
+    repo sync -c --force-sync --no-clone-bundle --no-tags -j4
     echo ""
 
     echo "Setting up build environment"
@@ -123,9 +123,9 @@ build_treble() {
     esac
     lunch lineage_${TARGET}-userdebug
     make installclean
-    make -j6 systemimage
+    make -j$(nproc --all) systemimage
     mv $OUT/system.img ~/build-output/LeaOS-19.1-$BUILD_DATE-${TARGET}.img
-    make vndk-test-sepolicy
+    #make vndk-test-sepolicy
 }
 
 if ${NOSYNC}
