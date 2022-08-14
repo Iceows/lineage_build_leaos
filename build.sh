@@ -42,6 +42,7 @@ START=`date +%s`
 BUILD_DATE="$(date +%Y%m%d)"
 WITHOUT_CHECK_API=true
 WITH_SU=true
+export OUT_DIR=/home/iceows/build/Los18.1
 
 repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
 
@@ -111,7 +112,7 @@ build_treble() {
     lunch ${TARGET}-userdebug
     make installclean
     make -j$(nproc --all) systemimage
-    make vndk-test-sepolicy
+    #make vndk-test-sepolicy
     mv $OUT/system.img ~/build-output/LeaOS-18.1-$BUILD_DATE-${TARGET}.img
 }
 
