@@ -42,6 +42,7 @@ START=`date +%s`
 BUILD_DATE="$(date +%Y%m%d)"
 WITHOUT_CHECK_API=true
 WITH_SU=true
+export OUT_DIR=/home/iceows/build/Los19.1
 
 repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
 
