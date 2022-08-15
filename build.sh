@@ -124,7 +124,7 @@ build_treble() {
     esac
     lunch lineage_${TARGET}-userdebug
     make installclean
-    make -j$(nproc --all) systemimage
+    make -j6 systemimage
     mv $OUT/system.img ~/build-output/LeaOS-19.1-$BUILD_DATE-${TARGET}.img
     #make vndk-test-sepolicy
 }
