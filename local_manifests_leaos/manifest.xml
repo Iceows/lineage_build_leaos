@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="phhusson/vendor_hardware_overlay" path="vendor/hardware_overlay" remote="github" revision="pie" />
-  <project name="phhusson/device_phh_treble" path="device/phh/treble" remote="github" revision="android-12.0" />
-  <project name="phhusson/vendor_vndk-tests" path="vendor/vndk-tests" remote="github" revision="master" />
-  <project name="phhusson/vendor_interfaces" path="vendor/interfaces" remote="github" revision="android-11.0" />
-  <project name="phhusson/vendor_lptools" path="vendor/lptools" remote="github" revision="master" />
-  <project name="phhusson/vendor_magisk" path="vendor/magisk" remote="github" revision="android-10.0" />
-  <remote name="gitlab" fetch="https://gitlab.com/" />
-  <project name="davi.sh/gms-android-12" path="vendor/partner_gms" remote="gitlab" revision="master" />
+  <!-- PHH support -->
+  <remote name="phh" fetch="https://github.com/phhusson/" />
+  <project name="vendor_hardware_overlay" path="vendor/hardware_overlay" remote="phh" revision="pie" />
+  <project name="device_phh_treble" path="device/phh/treble" remote="phh" revision="android-12.0" />
+  <project name="vendor_vndk-tests" path="vendor/vndk-tests" remote="phh" revision="master" />
+  <project name="vendor_interfaces" path="vendor/interfaces" remote="phh" revision="android-11.0" />
+  <project name="vendor_lptools" path="vendor/lptools" remote="phh" revision="master" />
+  <project name="vendor_magisk" path="vendor/magisk" remote="phh" revision="android-10.0" />
+  
+  <!-- GMS Android 12 support -->
+  <remote name="davi" fetch="https://gitlab.com/davi.sh" />
+  <project name="gms-android-12" path="vendor/partner_gms" remote="davi" revision="master" />
+  
+   <!-- GCamGO support -->
+  <remote name="iceows" fetch="https://github.com/iceows/" />
+  <project path="packages/apps/GcamGo" name="android_packages_apps_GCamGOPrebuilt" remote="iceows" revision="main" />
+ 
+  <!-- exfat support -->
+  <remote name="relan" fetch="https://github.com/relan/" />
+  <project path="external/exfat" name="exfat" remote="relan" revision="master" />
 </manifest>
