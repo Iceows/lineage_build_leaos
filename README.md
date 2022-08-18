@@ -38,6 +38,6 @@ A-only targets for Huawei hi6250 re generated from AB images instead of source-b
 
 This script is also used to make builds without sync repo. To do so add nosync in the command build line.
 
-    bash lineage_build_leaos/build.sh treble nosync 64BVZ
+    bash lineage_build_leaos/build.sh treble nosync 64BZ
 
 

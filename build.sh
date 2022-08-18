@@ -48,6 +48,7 @@ repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
 
 prep_build() {
     echo "Preparing local manifests"
+    rm -rf .repo/local_manifests
     mkdir -p .repo/local_manifests
     cp ./lineage_build_leaos/local_manifests_leaos/*.xml .repo/local_manifests
     echo ""
@@ -142,6 +143,7 @@ else
     apply_patches patches_platform_personal
     apply_patches patches_platform_iceows
     apply_patches patches_treble_personal
+    apply_patches patches_treble_iceows
     finalize_treble
     echo ""
 fi
