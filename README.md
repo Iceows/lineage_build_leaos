@@ -41,7 +41,7 @@ This script is also used to make builds without sync repo. To do so add nosync i
     bash lineage_build_leaos/build.sh treble nosync 64BZ
 
 
-## Building PHH-based LineageOS for device huawei ##
+## Building LineageOS for device huawei ##
 
 First, open a new Terminal window, create a new working directory for your LineageOS build (leaos for example) and navigate to it:
 
