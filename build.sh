@@ -13,6 +13,14 @@ then
 fi
 
 MODE=${1}
+if [ ${MODE} != "device" ] && [ ${MODE} != "treble" ]
+then
+    echo "Invalid mode - exiting"
+    echo ""
+    exit 1
+fi
+
+
 NOSYNC=false
 PERSONAL=false
 ICEOWS=true
@@ -23,6 +31,8 @@ do
         NOSYNC=true
     fi
 done
+
+
 
 echo "Building with NoSync : $NOSYNC - Mode : ${MODE}"
 
@@ -102,14 +112,11 @@ finalize_treble() {
 }
 
 build_device() {
-    if [ ${1} == "arm64" ]
+    if [ ${1} == "anne" ]
     then
-        lunch lineage_arm64-userdebug
-        make -j$(nproc --all) systemimage
-        mv $OUT/system.img ~/build-output/lineage-19.1-$BUILD_DATE-UNOFFICIAL-arm64$(${PERSONAL} && echo "-personal" || echo "").img
-    else
+      	 # croot
         brunch ${1}
-        mv $OUT/lineage-*.zip ~/build-output/lineage-19.1-$BUILD_DATE-UNOFFICIAL-${1}$($PERSONAL && echo "-personal" || echo "").zip
+        mv $OUT/lineage-*.zip ~/build-output/lineage-19.1-$BUILD_DATE-${1}.zip
     fi
 }
 
@@ -135,16 +142,17 @@ then
     source build/envsetup.sh &> /dev/null
     echo ""
 else
+  
     prep_build
     echo "Applying patches"
-    prep_treble
+    prep_${MODE}
     apply_patches patches_platform
-    apply_patches patches_treble
+    apply_patches patches_${MODE}
     apply_patches patches_platform_personal
     apply_patches patches_platform_iceows
-    apply_patches patches_treble_personal
-    apply_patches patches_treble_iceows
-    finalize_treble
+    apply_patches patches_${MODE}_personal
+    apply_patches patches_${MODE}_iceows
+    finalize_${MODE}
     echo ""
 fi
 
