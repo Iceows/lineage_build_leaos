@@ -139,10 +139,9 @@ then
     echo "ATTENTION: syncing/patching skipped!"
     echo ""
     echo "Setting up build environment"
-    source build/envsetup.sh &> /dev/null
+    source build/envsetup.sh
     echo ""
 else
-  
     prep_build
     echo "Applying patches"
     prep_${MODE}
@@ -153,7 +152,6 @@ else
     apply_patches patches_${MODE}_personal
     apply_patches patches_${MODE}_iceows
     finalize_${MODE}
-    echo ""
 fi
 
 for var in "${@:2}"
