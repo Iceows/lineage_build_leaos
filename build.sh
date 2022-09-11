@@ -114,8 +114,12 @@ finalize_treble() {
 build_device() {
     if [ ${1} == "anne" ]
     then
-      	 # croot
-        brunch ${1}
+      	# croot
+      	#TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
+      	#export TEMPORARY_DISABLE_PATH_RESTRICTIONS
+      	breakfast ${1} 
+      	mka bootimage 2>&1 | tee make_anne.log 
+        #brunch ${1}
         mv $OUT/lineage-*.zip ~/build-output/lineage-19.1-$BUILD_DATE-${1}.zip
     fi
 }
@@ -152,6 +156,7 @@ else
     apply_patches patches_${MODE}_personal
     apply_patches patches_${MODE}_iceows
     finalize_${MODE}
+   
 fi
 
 for var in "${@:2}"
