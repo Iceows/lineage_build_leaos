@@ -52,7 +52,7 @@ START=`date +%s`
 BUILD_DATE="$(date +%Y%m%d)"
 WITHOUT_CHECK_API=true
 WITH_SU=true
-export OUT_DIR=/home/iceows/build/Los19.1
+# export OUT_DIR=/home/iceows/build/Los19.1
 
 repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
 
@@ -117,10 +117,10 @@ build_device() {
       	# croot
       	#TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
       	#export TEMPORARY_DISABLE_PATH_RESTRICTIONS
-      	breakfast ${1} 
-      	mka bootimage 2>&1 | tee make_anne.log 
-        #brunch ${1}
-        mv $OUT/lineage-*.zip ~/build-output/lineage-19.1-$BUILD_DATE-${1}.zip
+      	#breakfast ${1} 
+      	#mka bootimage 2>&1 | tee make_anne.log 
+        brunch ${1}
+        mv $OUT/lineage-*.zip ~/build-output/LeaOS-OSS-19.1-$BUILD_DATE-${1}.zip
     fi
 }
 
