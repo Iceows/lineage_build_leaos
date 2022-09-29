@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-<remote name="phh" fetch="https://github.com/phhusson/" />
 
-<project path="vendor/hardware_overlay" name="vendor_hardware_overlay" remote="phh" revision="pie" />
-<project path="device/phh/treble" name="device_phh_treble" remote="phh" revision="android-11.0" />
-<project path="vendor/vndk-tests" name="vendor_vndk-tests" remote="phh" revision="master" />
-<project path="vendor/interfaces" name="vendor_interfaces" remote="phh" revision="android-11.0" />
-<project path="vendor/magisk" name="vendor_magisk" remote="phh" revision="android-10.0" />
+  <remote name="andy" fetch="https://github.com/AndyCGYan/" />
+  <remote name="phh" fetch="https://github.com/phhusson/" />
 
-<!-- GCamGO support -->
-<remote name="iceows" fetch="https://github.com/iceows/" />
-<project path="packages/apps/GcamGo" name="android_packages_apps_GCamGOPrebuilt" remote="iceows" revision="main" />
+  <project path="device/lineage/gsi" name="android_device_lineage_gsi"  remote="andy" revision="lineage-20" />
+  <project path="packages/apps/QcRilAm" name="android_packages_apps_QcRilAm"  remote="andy" revision="master" />
+  <project path="vendor/hardware_overlay" name="vendor_hardware_overlay"  remote="phh" revision="pie" />
+
+  <!-- GCamGO support -->
+  <remote name="iceows" fetch="https://github.com/iceows/" />
+  <project path="packages/apps/GcamGo" name="android_packages_apps_GCamGOPrebuilt" remote="iceows" revision="main" />
 
 </manifest>
