@@ -117,9 +117,12 @@ then
 else
     prep_build
     echo "Applying patches"
-    prep_treble
-
-    finalize_treble
+    prep_${MODE}
+    apply_patches patches_platform
+    apply_patches patches_${MODE}
+    apply_patches patches_platform_personal
+    apply_patches patches_${MODE}_personal
+    finalize_${MODE}
     echo ""
 fi
 
