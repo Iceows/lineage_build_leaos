@@ -43,7 +43,6 @@ BUILD_DATE="$(date +%Y%m%d)"
 WITHOUT_CHECK_API=true
 WITH_SU=true
 
-repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
 
 prep_build() {
 	echo "Preparing local manifests"
@@ -53,19 +52,26 @@ prep_build() {
 	echo ""
 
 	echo "Syncing repos"
-	repo sync -j$(nproc --all) -c -q --force-sync --no-tags --no-clone-bundle --optimized-fetch --prune
-
+	repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
 	echo ""
 
 	echo "Setting up build environment"
 	source build/envsetup.sh &> /dev/null
 	mkdir -p ~/build-output
 	echo ""
+	
+	repopick -t 13-qs-lightmode
+	repopick -t 13-powermenu-lightmode
+	repopick 321337 -f # Deprioritize important developer notifications
+	repopick 321338 -f # Allow disabling important developer notifications
+	repopick 321339 -f # Allow disabling USB notifications
+	repopick 331534 -f # SystemUI: Add support to add/remove QS tiles with one tap
+	repopick 334388 -f # SystemUI: Fix QS header clock color
 }
 
 apply_patches() {
     echo "Applying patch group ${1}"
-    bash ./treble_experimentations/apply-patches.sh ./lineage_patches_leaos/${1}
+    bash ./lineage_build_unified/apply_patches.sh ./lineage_patches_unified/${1}
 }
 
 prep_device() {
@@ -73,8 +79,7 @@ prep_device() {
 }
 
 prep_treble() {
-    echo "Applying patch treble prerequisite and phh"
-
+    :
 }
 
 finalize_device() {
@@ -82,37 +87,24 @@ finalize_device() {
 }
 
 finalize_treble() {
-    rm -f device/*/sepolicy/common/private/genfs_contexts
-    cd device/phh/treble
-    git clean -fdx
-    bash generate.sh lineage
-    cd ../../..
+    :
 }
 
 build_device() {
-    if [ ${1} == "arm64" ]
-    then
-        lunch lineage_arm64-userdebug
-        make -j$(nproc --all) systemimage
-        mv $OUT/system.img ~/build-output/lineage-18.1-$BUILD_DATE-UNOFFICIAL-arm64$(${PERSONAL} && echo "-personal" || echo "").img
-    else
-        brunch ${1}
-        mv $OUT/lineage-*.zip ~/build-output/lineage-18.1-$BUILD_DATE-UNOFFICIAL-${1}$($PERSONAL && echo "-personal" || echo "").zip
-    fi
+    brunch ${1}
+    mv $OUT/lineage-*.zip ~/build-output/lineage-20.0-$BUILD_DATE-UNOFFICIAL-${1}$($PERSONAL && echo "-personal" || echo "").zip
 }
 
 build_treble() {
     case "${1}" in
-        ("64BVS") TARGET=treble_arm64_bvS;;
-        ("64BVZ") TARGET=treble_arm64_bvZ;;
-        ("64BVN") TARGET=treble_arm64_bvN;;
+        ("64BVS") TARGET=gsi_arm64_vS;;
+        ("64BVZ") TARGET=gsi_arm64_vZ;;
+        ("64BVN") TARGET=gsi_arm64_vN;;
         (*) echo "Invalid target - exiting"; exit 1;;
     esac
-    lunch ${TARGET}-userdebug
-    make installclean
+    lunch lineage_${TARGET}-userdebug
     make -j$(nproc --all) systemimage
-    make vndk-test-sepolicy
-    mv $OUT/system.img ~/build-output/LeaOS-$BUILD_DATE-${TARGET}.img
+    mv $OUT/system.img ~/build-output/LeaOS-20.0-$BUILD_DATE-${TARGET}.img
 }
 
 if ${NOSYNC}
@@ -126,9 +118,7 @@ else
     prep_build
     echo "Applying patches"
     prep_treble
-    apply_patches lineage
-    apply_patches generic
-    apply_patches personal
+
     finalize_treble
     echo ""
 fi
@@ -143,6 +133,10 @@ do
     build_${MODE} ${var}
 done
 ls ~/build-output | grep 'LeaOS' || true
+if [ ${MODE} == "treble" ]
+then
+    echo $START > ~/build-output/ota-timestamp.txt
+fi
 
 END=`date +%s`
 ELAPSEDM=$(($(($END-$START))/60))
