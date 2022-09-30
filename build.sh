@@ -1,6 +1,6 @@
 #!/bin/bash
 echo ""
-echo "LineageOS 18.x Unified Buildbot - LeaOS version"
+echo "LineageOS 20.x Unified Buildbot - LeaOS version"
 echo "Executing in 5 seconds - CTRL-C to exit"
 echo ""
 sleep 5
@@ -71,7 +71,7 @@ prep_build() {
 
 apply_patches() {
     echo "Applying patch group ${1}"
-    bash ./lineage_build_unified/apply_patches.sh ./lineage_patches_unified/${1}
+    bash ./lineage_build_leaos/apply_patches.sh ./lineage_patches_unified/${1}
 }
 
 prep_device() {
