@@ -21,6 +21,7 @@ Clone both this and the patches repos:
     git clone https://github.com/iceows/lineage_build_leaos lineage_build_leaos -b lineage-19.1
     git clone https://github.com/iceows/lineage_patches_leaos lineage_patches_leaos -b lineage-19.1
 
+
 Finally, start the build script (Dynamic root):
 
     bash lineage_build_leaos/build.sh treble 64BVZ
@@ -57,6 +58,8 @@ Clone both this and the patches repos:
     git clone https://github.com/iceows/lineage_patches_leaos lineage_patches_leaos -b lineage-19.1
     
 Clone huawei device repos (vendor, kernel, etc..) for your phone device
+
+    bash lineage_build_leaos/clone_hi6250-9_s_buildbots.sh
     
 Finally, start the build script for device (example : anne) :
 
