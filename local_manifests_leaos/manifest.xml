@@ -3,10 +3,18 @@
 
   <remote name="andy" fetch="https://github.com/AndyCGYan/" />
   <remote name="phh" fetch="https://github.com/phhusson/" />
-
-  <project path="device/lineage/gsi" name="android_device_lineage_gsi"  remote="andy" revision="lineage-20" />
-  <project path="packages/apps/QcRilAm" name="android_packages_apps_QcRilAm"  remote="andy" revision="master" />
-  <project path="vendor/hardware_overlay" name="vendor_hardware_overlay"  remote="phh" revision="pie" />
+  <remote name="td" fetch="https://github.com/trebledroid/" />
+  
+  <project name="vendor_hardware_overlay" path="vendor/hardware_overlay" remote="td" revision="pie" />
+  <project name="device_phh_treble" path="device/phh/treble" remote="td" revision="android-13.0" />
+  <project name="vendor_vndk-tests" path="vendor/vndk-tests" remote="phh" revision="master" />
+  <project name="vendor_interfaces" path="vendor/interfaces" remote="phh" revision="android-11.0" />
+  <project name="vendor_lptools" path="vendor/lptools" remote="phh" revision="master" />
+  <project name="vendor_magisk" path="vendor/magisk" remote="phh" revision="android-10.0" />
+ 
+  <!-- Google Apps support --> 
+  <remote name="gitlab" fetch="https://gitlab.com/" />
+  <project name="MindTheGapps/vendor_gapps" path="vendor/gapps" remote="gitlab" revision="tau" />
 
   <!-- GCamGO support -->
   <remote name="iceows" fetch="https://github.com/iceows/" />

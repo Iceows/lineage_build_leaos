@@ -12,10 +12,19 @@ then
     exit 1
 fi
 
-MODE=${1}
-NOSYNC=false
+
 PERSONAL=false
 ICEOWS=true
+
+MODE=${1}
+if [ ${MODE} != "device" ] && [ ${MODE} != "treble" ]
+then
+    echo "Invalid mode - exiting"
+    echo ""
+    exit 1
+fi
+
+NOSYNC=false
 for var in "${@:2}"
 do
     if [ ${var} == "nosync" ]
@@ -25,8 +34,6 @@ do
 done
 
 echo "Building with NoSync : $NOSYNC - Mode : ${MODE}"
-
-
 
 # Abort early on error
 set -eE
@@ -38,40 +45,37 @@ echo \!\!\! failed patch application, etc.;\
 echo\
 )' ERR
 
-START=`date +%s`
-BUILD_DATE="$(date +%Y%m%d)"
+
 WITHOUT_CHECK_API=true
 WITH_SU=true
-
+START=`date +%s`
+BUILD_DATE="$(date +%Y%m%d)"
 
 prep_build() {
-	echo "Preparing local manifests"
-	rm -rf .repo/local_manifests
-	mkdir -p .repo/local_manifests
-	cp ./lineage_build_leaos/local_manifests_leaos/*.xml .repo/local_manifests
-	echo ""
+    echo "Preparing local manifests"
+    mkdir -p .repo/local_manifests
+    cp ./lineage_build_leaos/local_manifests_leaos/*.xml .repo/local_manifests
+    echo ""
 
-	echo "Syncing repos"
-	repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
-	echo ""
+    echo "Syncing repos"
+    repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
+    echo ""
 
-	echo "Setting up build environment"
-	source build/envsetup.sh &> /dev/null
-	mkdir -p ~/build-output
-	echo ""
-	
-	repopick -t 13-qs-lightmode
-	repopick -t 13-powermenu-lightmode
-	repopick 321337 -f # Deprioritize important developer notifications
-	repopick 321338 -f # Allow disabling important developer notifications
-	repopick 321339 -f # Allow disabling USB notifications
-	repopick 331534 -f # SystemUI: Add support to add/remove QS tiles with one tap
-	repopick 334388 -f # SystemUI: Fix QS header clock color
+    echo "Setting up build environment"
+    source build/envsetup.sh &> /dev/null
+    mkdir -p ~/build-output
+    echo ""
+
+    repopick 321337 -f # Deprioritize important developer notifications
+    repopick 321338 -f # Allow disabling important developer notifications
+    repopick 321339 -f # Allow disabling USB notifications
+    repopick 331534 -f # SystemUI: Add support to add/remove QS tiles with one tap
+    repopick 340916 # SystemUI: add burnIn protection
 }
 
 apply_patches() {
     echo "Applying patch group ${1}"
-    bash ./lineage_build_leaos/apply_patches.sh ./lineage_patches_unified/${1}
+    bash ./lineage_build_leaos/apply_patches.sh ./lineage_patches_leaos/${1}
 }
 
 prep_device() {
@@ -79,7 +83,8 @@ prep_device() {
 }
 
 prep_treble() {
-    :
+    apply_patches patches_treble_prerequisite
+    apply_patches patches_treble_td
 }
 
 finalize_device() {
@@ -87,19 +92,23 @@ finalize_device() {
 }
 
 finalize_treble() {
-    :
+    rm -f device/*/sepolicy/common/private/genfs_contexts
+    cd device/phh/treble
+    git clean -fdx
+    bash generate.sh lineage
+    cd ../../..
 }
 
 build_device() {
     brunch ${1}
-    mv $OUT/lineage-*.zip ~/build-output/lineage-20.0-$BUILD_DATE-UNOFFICIAL-${1}$($PERSONAL && echo "-personal" || echo "").zip
+    mv $OUT/lineage-*.zip ~/build-output/lineage-20.0-$BUILD_DATE-UNOFFICIAL-${1}.zip
 }
 
 build_treble() {
     case "${1}" in
-        ("64BVS") TARGET=gsi_arm64_vS;;
-        ("64BVZ") TARGET=gsi_arm64_vZ;;
-        ("64BVN") TARGET=gsi_arm64_vN;;
+        ("64VN") TARGET=arm64_bvN;;
+        ("64VS") TARGET=arm64_bvS;;
+        ("64GN") TARGET=arm64_bgN;;
         (*) echo "Invalid target - exiting"; exit 1;;
     esac
     lunch lineage_${TARGET}-userdebug
@@ -126,23 +135,21 @@ else
     echo ""
 fi
 
+
 for var in "${@:2}"
 do
     if [ ${var} == "nosync" ]
     then
         continue
     fi
-    echo "Starting $(${PERSONAL} && echo "personal " || echo "")build for ${MODE} ${var}"
+    echo "Starting personal " || echo " build for ${MODE} ${var}"
     build_${MODE} ${var}
 done
-ls ~/build-output | grep 'LeaOS' || true
-if [ ${MODE} == "treble" ]
-then
-    echo $START > ~/build-output/ota-timestamp.txt
-fi
+ls ~/build-output | grep 'Leaos' || true
 
 END=`date +%s`
 ELAPSEDM=$(($(($END-$START))/60))
 ELAPSEDS=$(($(($END-$START))-$ELAPSEDM*60))
 echo "Buildbot completed in $ELAPSEDM minutes and $ELAPSEDS seconds"
 echo ""
+
