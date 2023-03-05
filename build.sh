@@ -139,7 +139,7 @@ else
     apply_patches patches_${MODE}
     apply_patches patches_platform_personal
     apply_patches patches_${MODE}_personal
-    apply_patches patches_iceows
+    apply_patches patches_${MODE}_iceows
     finalize_${MODE}
     echo ""
 fi
