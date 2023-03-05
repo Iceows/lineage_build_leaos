@@ -100,8 +100,16 @@ finalize_treble() {
 }
 
 build_device() {
-    brunch ${1}
-    mv $OUT/lineage-*.zip ~/build-output/lineage-20.0-$BUILD_DATE-UNOFFICIAL-${1}.zip
+   if [ ${1} == "anne" ]
+    then
+      	# croot
+      	#TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
+      	#export TEMPORARY_DISABLE_PATH_RESTRICTIONS
+      	#breakfast ${1} 
+      	#mka bootimage 2>&1 | tee make_anne.log 
+        brunch ${1}
+        mv $OUT/lineage-*.zip ~/build-output/LeaOS-OSS-19.1-$BUILD_DATE-${1}.zip
+    fi
 }
 
 build_treble() {
