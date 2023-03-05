@@ -9,7 +9,8 @@
 #
 
 # Config
-BRANCH="lineage-19.1"
+BRANCH="lineage-20.0"
+BRANCH-LAB="lineage-19.1"
 LOCAL_PATH="."
 #GITHUB="git@github.com:"
 GITHUB="https://github.com/"
@@ -43,7 +44,7 @@ git clone "$GITHUB""$DEVICE_COMMON" "$DEVICE_COMMON_PATH" -b "$BRANCH"
 #git clone "$GITHUB""$DEVICE_FIGO" "$DEVICE_FIGO_PATH" -b "$BRANCH"
 git clone "$GITHUB""$DEVICE_ANNE" "$DEVICE_ANNE_PATH" -b "$BRANCH"
 #git clone "$GITHUB""$DEVICE_BOND" "$DEVICE_BOND_PATH" -b "$BRANCH"
-git clone "$GITLAB""$VENDOR_COMMON" "$VENDOR_COMMON_PATH" -b "$BRANCH"
+git clone "$GITLAB""$VENDOR_COMMON" "$VENDOR_COMMON_PATH" -b "$BRANCH-LAB"
 #git clone "$GITHUB""$VENDOR_FIGO" "$VENDOR_FIGO_PATH" -b "$BRANCH"
 git clone "$GITHUB""$VENDOR_ANNE" "$VENDOR_ANNE_PATH" -b "$BRANCH"
 #git clone "$GITHUB""$VENDOR_BOND" "$VENDOR_BOND_PATH" -b "$BRANCH"
