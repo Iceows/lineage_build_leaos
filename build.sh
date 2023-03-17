@@ -79,7 +79,9 @@ apply_patches() {
 }
 
 prep_device() {
-    :
+
+    unzip -o ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware
+
 }
 
 prep_treble() {
@@ -108,7 +110,7 @@ build_device() {
       	#breakfast ${1} 
       	#mka bootimage 2>&1 | tee make_anne.log 
         brunch ${1}
-        mv $OUT/lineage-*.zip ~/build-output/LeaOS-OSS-19.1-$BUILD_DATE-${1}.zip
+        mv $OUT/lineage-*.zip ~/build-output/LeaOS-OSS-20.0-$BUILD_DATE-${1}.zip
     fi
 }
 
