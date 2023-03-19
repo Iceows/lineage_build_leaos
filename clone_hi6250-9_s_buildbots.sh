@@ -1,3 +1,4 @@
+@@ -0,0 +1,39 @@
 #!/bin/bash
 
 #
@@ -9,28 +10,18 @@
 
 # Config
 BRANCH="lineage-20.0"
-BRANCH-LAB="lineage-19.1"
 LOCAL_PATH="."
-#GITHUB="git@github.com:"
 GITHUB="https://github.com/"
 
 # Repos
 DEVICE_COMMON="iceows/android_device_huawei_hi6250-9-common"
 DEVICE_COMMON_PATH="device/huawei/hi6250-9-common"
-#DEVICE_FIGO="iceows/android_device_huawei_figo"
-#DEVICE_FIGO_PATH="device/huawei/figo"
 DEVICE_ANNE="iceows/android_device_huawei_anne"
 DEVICE_ANNE_PATH="device/huawei/anne"
-#DEVICE_BOND="iceows/android_device_huawei_bond"
-#DEVICE_BOND_PATH="device/huawei/bond"
 VENDOR_COMMON="iceows/android_vendor_huawei_hi6250-9-common"
 VENDOR_COMMON_PATH="vendor/huawei/hi6250-9-common"
-#VENDOR_FIGO="iceows/android_vendor_huawei_figo"
-#VENDOR_FIGO_PATH="vendor/huawei/figo"
 VENDOR_ANNE="iceows/android_vendor_huawei_anne"
 VENDOR_ANNE_PATH="vendor/huawei/anne"
-#VENDOR_BOND="iceows/android_vendor_huawei_bond"
-#VENDOR_BOND_PATH="vendor/huawei/bond"
 KERNEL="iceows/android_kernel_huawei_hi6250-9"
 KERNEL_PATH="kernel/huawei/hi6250-9"
 HARDWARE="iceows/android_hardware_huawei"
