@@ -69,8 +69,21 @@ prep_build() {
     repopick 321337 -f # Deprioritize important developer notifications
     repopick 321338 -f # Allow disabling important developer notifications
     repopick 321339 -f # Allow disabling USB notifications
-    repopick 331534 -f # SystemUI: Add support to add/remove QS tiles with one tap
     repopick 340916 # SystemUI: add burnIn protection
+
+
+    # Walk the entire tree starting at $PWD and find all directories
+    # containing `.gitattributes` file that says it's a Git clone
+    # directory that uses Git-LFS. For each such directory, do `git lfs
+    # pull`.
+    cd external
+    grep -l 'merge=lfs' $( find $PWD -name .gitattributes ) /dev/null | while IFS= read -r line; do
+       dir=$(dirname $line)
+       echo $dir
+       ( cd $dir ; git lfs pull )
+    done
+    cd ..
+
 }
 
 apply_patches() {
@@ -102,8 +115,7 @@ finalize_treble() {
 }
 
 build_device() {
-   if [ ${1} == "anne" ]
-    then
+
       	# croot
       	#TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
       	#export TEMPORARY_DISABLE_PATH_RESTRICTIONS
@@ -111,7 +123,7 @@ build_device() {
       	#mka bootimage 2>&1 | tee make_anne.log 
         brunch ${1}
         mv $OUT/lineage-*.zip ~/build-output/LeaOS-OSS-20.0-$BUILD_DATE-${1}.zip
-    fi
+
 }
 
 build_treble() {
@@ -133,15 +145,24 @@ then
     echo "Setting up build environment"
     source build/envsetup.sh &> /dev/null
     echo ""
-else
-    prep_build
-    echo "Applying patches"
     prep_${MODE}
+else
+    echo "Prep build" 
+    prep_build
+    prep_${MODE}
+    
+    echo "Applying patches"    
     apply_patches patches_platform
-    apply_patches patches_${MODE}
-    apply_patches patches_platform_personal
-    apply_patches patches_${MODE}_personal
-    apply_patches patches_${MODE}_iceows
+    if [ ${MODE} == "device" ]
+    then
+    	apply_patches patches_device
+    	apply_patches patches_device_iceows
+    else
+	apply_patches patches_treble
+	apply_patches patches_platform_personal
+	apply_patches patches_treble_personal
+	apply_patches patches_treble_iceows
+    fi
     finalize_${MODE}
     echo ""
 fi
