@@ -51,6 +51,8 @@ WITH_SU=true
 START=`date +%s`
 BUILD_DATE="$(date +%Y%m%d)"
 
+export OUT_DIR=/home/iceows/build/LeaOS
+
 prep_build() {
     echo "Preparing local manifests"
     mkdir -p .repo/local_manifests
@@ -69,7 +71,7 @@ prep_build() {
     repopick 321337 -f # Deprioritize important developer notifications
     repopick 321338 -f # Allow disabling important developer notifications
     repopick 321339 -f # Allow disabling USB notifications
-    repopick 340916 # SystemUI: add burnIn protection
+     #repopick 340916 # SystemUI: add burnIn protection
 
 
     # Walk the entire tree starting at $PWD and find all directories
@@ -145,19 +147,20 @@ then
     echo "Setting up build environment"
     source build/envsetup.sh &> /dev/null
     echo ""
-    prep_${MODE}
+
 else
     echo "Prep build" 
     prep_build
     prep_${MODE}
     
     echo "Applying patches"    
-    apply_patches patches_platform
+    
     if [ ${MODE} == "device" ]
     then
     	apply_patches patches_device
     	apply_patches patches_device_iceows
     else
+    	apply_patches patches_platform
 	apply_patches patches_treble
 	apply_patches patches_platform_personal
 	apply_patches patches_treble_personal
