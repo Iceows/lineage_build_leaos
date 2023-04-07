@@ -44,7 +44,8 @@ WITHOUT_CHECK_API=true
 WITH_SU=true
 export OUT_DIR=/home/iceows/build/Los18.1
 
-repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
+repo init -u https://github.com/LineageOS/android.git -b lineage-18.1 --git-lfs
+
 
 prep_build() {
 	echo "Preparing local manifests"
