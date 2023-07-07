@@ -78,21 +78,6 @@ prep_build() {
     repopick 342863 # CCodec: Use pipelineRoom only for HW decoder
     repopick 342864 # codec2: Change a Info print into Verbose
 
-
-    # Only if you hae not include in the repo init --git-lfs
-    # Walk the entire tree starting at $PWD and find all directories
-    # containing `.gitattributes` file that says it's a Git clone
-    # directory that uses Git-LFS. For each such directory, do `git lfs
-    # pull`.
-    
-    #cd external
-    #grep -l 'merge=lfs' $( find $PWD -name .gitattributes ) /dev/null | while IFS= read -r line; do
-    #   dir=$(dirname $line)
-    #   echo $dir
-    #   ( cd $dir ; git lfs pull )
-    #done
-    #cd ..
-
 }
 
 apply_patches() {
