@@ -4,15 +4,15 @@
   <remote name="andy" fetch="https://github.com/AndyCGYan/" />
   <remote name="phh" fetch="https://github.com/phhusson/" />
   <remote name="tdroid" fetch="https://github.com/trebledroid/" />
-  
-<!-- PHH or TD repo -->
-<remote name="phh" fetch="https://github.com/phhusson/"/>
-<project path="vendor/hardware_overlay" name="vendor_hardware_overlay" remote="tdroid" revision="pie" />
-<project path="device/phh/treble" name="device_phh_treble" remote="tdroid" revision="android-13.0" />
-<project path="vendor/interfaces" name="vendor_interfaces" remote="tdroid" revision="android-13.0" />
-<project path="vendor/magisk" name="vendor_magisk" remote="phh" revision="android-10.0" />
-<project path="vendor/lptools" name="vendor_lptools" remote="phh" revision="master"/>
-<project path="vendor/vndk-tests" name="vendor_vndk-tests" remote="phh" revision="master"/>
+  <remote name="iceows" fetch="https://github.com/iceows/" />
+    
+  <!-- PHH or TD repo -->
+  <project path="vendor/hardware_overlay" name="vendor_hardware_overlay" remote="tdroid" revision="pie" />
+  <project path="device/phh/treble" name="device_phh_treble" remote="tdroid" revision="android-13.0" />
+  <project path="vendor/interfaces" name="vendor_interfaces" remote="tdroid" revision="android-13.0" />
+  <project path="vendor/magisk" name="vendor_magisk" remote="phh" revision="android-10.0" />
+  <project path="vendor/lptools" name="vendor_lptools" remote="phh" revision="master"/>
+  <project path="vendor/vndk-tests" name="vendor_vndk-tests" remote="phh" revision="master"/>
   
   <!-- AndyGC Yan QcRilAm --> 
   <project name="android_packages_apps_QcRilAm" path="packages/apps/QcRilAm"  remote="andy" revision="master" />
@@ -22,7 +22,33 @@
   <project name="MindTheGapps/vendor_gapps" path="vendor/gapps" remote="gitlab" revision="tau" />
 
   <!-- GCamGO support -->
-  <remote name="iceows" fetch="https://github.com/iceows/" />
   <project path="packages/apps/GcamGo" name="android_packages_apps_GCamGOPrebuilt" remote="iceows" revision="main" />
+
+  <!-- OSS Repo -->
+    <remote name="github-hisi"
+            fetch="https://github.com/hisi-oss"
+            revision="lineage-20" />
+
+    <remote name="gitlab-hisi"
+            fetch="https://gitlab.com/itsvixano-dev"
+            revision="lineage-20" />
+
+    <!-- hardware -->
+    <project path="hardware/hisi" name="android_hardware_hisi" remote="github-hisi" />
+
+    <!-- vendor -->
+    <project path="vendor/huawei" name="proprietary_vendor_huawei" remote="gitlab-hisi" />
+
+    <!-- device -->
+    <project path="device/hisi/sepolicy" name="android_device_hisi_sepolicy" remote="github-hisi" />
+    <project path="device/huawei/prague" name="android_device_huawei_prague" remote="github-hisi" />
+    <project path="device/huawei/hi6250-8-common" name="android_device_huawei_hi6250-8-common" remote="github-hisi" revision="staging/lineage-20" />
+
+    <!-- kernel -->
+    <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="github-hisi" />
+
+    <!-- clang -->
+    <project path="prebuilts/clang/host/linux-x86/clang-r416183b1" name="android_prebuilts_clang_host_linux-x86_clang-r416183b1" remote="iceows" revision="main" />
+ 
 
 </manifest>

@@ -53,6 +53,7 @@ BUILD_DATE="$(date +%Y%m%d)"
 
 export OUT_DIR=/home/iceows/build/LeaOS
 
+
 prep_build() {
     echo "Preparing local manifests"
     mkdir -p .repo/local_manifests
@@ -78,6 +79,7 @@ prep_build() {
     repopick 342863 # CCodec: Use pipelineRoom only for HW decoder
     repopick 342864 # codec2: Change a Info print into Verbose
 
+
 }
 
 apply_patches() {
@@ -87,8 +89,15 @@ apply_patches() {
 
 prep_device() {
 
-    unzip -o ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware
+    # EMUI 8
+    cd hardware/lineage/compat
+    git fetch https://github.com/LineageOS/android_hardware_lineage_compat refs/changes/13/361913/9
+    git cherry-pick FETCH_HEAD
+    cd ../../../
 
+    # EMUI 9
+    #unzip -o ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware
+    
 }
 
 prep_treble() {
