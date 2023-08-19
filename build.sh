@@ -51,7 +51,7 @@ WITH_SU=true
 START=`date +%s`
 BUILD_DATE="$(date +%Y%m%d)"
 
-export OUT_DIR=/home/iceows/build/LeaOS
+#export OUT_DIR=/home/iceows/build/LeaOS
 
 
 prep_build() {
@@ -96,8 +96,8 @@ prep_device() {
     cd ../../../
 
     # EMUI 9
-    #unzip -o ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware
-    
+    unzip -o ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware
+    unzip -o ./vendor/huawei/hi6250-8-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-8-common/proprietary/vendor/firmware
 }
 
 prep_treble() {
