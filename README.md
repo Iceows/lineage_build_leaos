@@ -30,9 +30,7 @@ Be sure to update the cloned repos from time to time!
 
 ---
 
-A-only targets for Huawei hi6250 re generated from AB images instead of source-built - refer to [huawei-creator](https://github.com/iceows/huawei-creator).
-
-	sudo ./run-huawei-aonly.sh "myimage.img"  "LeaOS" "PRA-LX1"
+EMUI 9 or EMUI 10 targets for Huawei re generated from AB images instead of source-built - refer to [huawei-creator](https://github.com/iceows/huawei-creator).
 
 ---
 
@@ -40,4 +38,7 @@ This script is also used to make builds without sync repo. To do so add nosync i
 
     bash lineage_build_leaos/build.sh treble nosync 64BZ
 
+## Building Ane-lx1 device LineageOS GSIs ##
+
+   bash lineage_build_leaos/build.sh device anne
 
