@@ -8,10 +8,6 @@ First, open a new Terminal window, create a new working directory for your Linea
 
     mkdir leaos; cd leaos
     
-Clone the modified treble_experimentations repo there:
-
-    git clone https://github.com/iceows/treble_experimentations
-
 Initialize your LineageOS workspace:
 
     repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
@@ -21,9 +17,9 @@ Clone both this and the patches repos:
     git clone https://github.com/iceows/lineage_build_leaos lineage_build_leaos -b lineage-20.0
     git clone https://github.com/iceows/lineage_patches_leaos lineage_patches_leaos -b lineage-20.0
 
-Finally, start the build script (Dynamic root):
+Finally, start the build script :
 
-    bash lineage_build_leaos/build.sh treble 64BZ
+    bash lineage_build_leaos/build.sh treble 64BN
 
 
 Be sure to update the cloned repos from time to time!
@@ -36,7 +32,7 @@ EMUI 9 or EMUI 10 targets for Huawei re generated from AB images instead of sour
 
 This script is also used to make builds without sync repo. To do so add nosync in the command build line.
 
-    bash lineage_build_leaos/build.sh treble nosync 64BZ
+    bash lineage_build_leaos/build.sh treble nosync 64BN
 
 ## Building Ane-lx1 device LineageOS GSIs ##
 
