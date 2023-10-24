@@ -17,9 +17,9 @@ Clone both this and the patches repos:
     git clone https://github.com/iceows/lineage_build_leaos lineage_build_leaos -b lineage-20.0
     git clone https://github.com/iceows/lineage_patches_leaos lineage_patches_leaos -b lineage-20.0
 
-Finally, start the build script :
+Finally, start the build script (64VN = Vanilia / 64GN = GoogleApps):
 
-    bash lineage_build_leaos/build.sh treble 64BN
+    bash lineage_build_leaos/build.sh treble 64VN
 
 
 Be sure to update the cloned repos from time to time!
@@ -32,7 +32,7 @@ EMUI 9 or EMUI 10 targets for Huawei re generated from AB images instead of sour
 
 This script is also used to make builds without sync repo. To do so add nosync in the command build line.
 
-    bash lineage_build_leaos/build.sh treble nosync 64BN
+    bash lineage_build_leaos/build.sh treble nosync 64VN
 
 ## Building Ane-lx1 device LineageOS GSIs ##
 
