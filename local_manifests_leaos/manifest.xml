@@ -63,7 +63,7 @@
     <project path="hardware/huawei" name="android_hardware_huawei" remote="iceows" />
     
     <!-- kernel -->
-    <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="github-hisi" revision="lineage-20" />
+    <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="iceows" revision="lineage-20.0" />
     <project path="kernel/huawei/hi6250-9" name="android_kernel_huawei_hi6250-9" remote="iceows" revision="lineage-20.0" />
     
     <!-- clang -->
