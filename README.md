@@ -34,7 +34,8 @@ This script is also used to make builds without sync repo. To do so add nosync i
 
     bash lineage_build_leaos/build.sh treble nosync 64VN
 
-## Building Ane-lx1 device LineageOS GSIs ##
+## Building ANE-LX1 (P20 Lite) device LineageOS GSIs ##
 
-   bash lineage_build_leaos/build.sh device anne
+    bash lineage_build_leaos/build.sh device anne
 
+---
