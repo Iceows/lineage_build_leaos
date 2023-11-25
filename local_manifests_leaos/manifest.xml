@@ -47,9 +47,9 @@
     <project path="vendor/huawei/hi6250-9-common" name="android_vendor_huawei_hi6250-9-common" remote="iceows" revision="lineage-20.0" />
         
     <!-- device -->
-    <project path="device/huawei/prague" name="android_device_huawei_prague" remote="iceows" revision="lineage-20.0" />
+    <project path="device/huawei/prague" name="android_device_huawei_prague" remote="github-hisi" revision="lineage-20" />
     <project path="device/huawei/berlin" name="android_device_huawei_berlin" remote="github-peam" />
-    <project path="device/huawei/hi6250-8-common" name="android_device_huawei_hi6250-8-common" remote="iceows" revision="lineage-20.0" />
+    <project path="device/huawei/hi6250-8-common" name="android_device_huawei_hi6250-8-common" remote="github-hisi" revision="staging/lineage-20" />
     <project path="device/huawei/anne" name="android_device_huawei_anne" remote="iceows" revision="lineage-20.0" />
     <project path="device/huawei/figo" name="android_device_huawei_figo" remote="iceows" revision="lineage-20.0" />
     <project path="device/huawei/hi6250-9-common" name="android_device_huawei_hi6250-9-common" remote="iceows" revision="lineage-20.0" />
@@ -59,11 +59,11 @@
     <project path="device/hisi/sepolicy" name="android_device_hisi_sepolicy" remote="iceows" revision="lineage-20.0" />
 
     <!-- hardware -->
-    <project path="hardware/hisi" name="android_hardware_hisi" remote="github-hisi" />
+    <project path="hardware/hisi" name="android_hardware_hisi" remote="github-hisi" revision="lineage-20" />
     <project path="hardware/huawei" name="android_hardware_huawei" remote="iceows" />
     
     <!-- kernel -->
-    <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="iceows" revision="lineage-20.0" />
+    <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="github-hisi" revision="lineage-20" />
     <project path="kernel/huawei/hi6250-9" name="android_kernel_huawei_hi6250-9" remote="iceows" revision="lineage-20.0" />
     
     <!-- clang -->
