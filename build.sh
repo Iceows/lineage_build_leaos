@@ -57,9 +57,17 @@ export OUT_DIR=/home/iceows/build/LeaOS
 prep_build() {
     echo "Preparing local manifests"
     mkdir -p .repo/local_manifests
-    cp ./lineage_build_leaos/local_manifests_leaos/*.xml .repo/local_manifests
-    echo ""
 
+    
+    if [ ${MODE} == "device" ]
+    then
+       cp ./lineage_build_leaos/local_manifests_leaoss/*.xml .repo/local_manifests
+    else
+       cp ./lineage_build_leaos/local_manifests_leaos/*.xml .repo/local_manifests
+    fi
+    
+    echo ""
+    
     echo "Syncing repos"
     repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
     echo ""
