@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- Iceows repo --> 
+  <remote name="iceows" fetch="https://github.com/iceows/" />
+  
+  <!-- Google Apps support --> 
+  <remote name="gitlab" fetch="https://gitlab.com/" />
+  <project name="MindTheGapps/vendor_gapps" path="vendor/gapps" remote="gitlab" revision="tau" />
+
+  <!-- GCamGO support -->
+  <project path="packages/apps/GcamGo" name="android_packages_apps_GCamGOPrebuilt" remote="iceows" revision="main" />
+
+  <!-- OSS Repo -->
+    <remote name="github-hisi"
+            fetch="https://github.com/hisi-oss"
+            revision="lineage-20" />
+
+    <remote name="gitlab-hisi"
+            fetch="https://gitlab.com/itsvixano-dev"
+            revision="lineage-20" />
+            
+    <remote name="github-peam"
+            fetch="https://github.com/Peam269"
+            revision="lineage-20" />
+
+
+    <!-- vendor -->
+    <project path="vendor/huawei/prague" name="android_vendor_huawei_prague" remote="iceows" revision="lineage-20.0" />
+    <project path="vendor/huawei/berlin" name="proprietary_vendor_huawei_berlin" remote="github-peam"/>
+    <project path="vendor/huawei/hi6250-8-common" name="android_vendor_huawei_hi6250-8-common" remote="iceows" revision="lineage-20.0" />
+    <project path="vendor/huawei/anne" name="android_vendor_huawei_anne" remote="iceows" revision="lineage-20.0" />
+    <project path="vendor/huawei/figo" name="android_vendor_huawei_figo" remote="iceows" revision="lineage-20.0" />
+    <project path="vendor/huawei/hi6250-9-common" name="android_vendor_huawei_hi6250-9-common" remote="iceows" revision="lineage-20.0" />
+        
+    <!-- device -->
+    <project path="device/huawei/prague" name="android_device_huawei_prague" remote="iceows" revision="lineage-20.0" />
+    <project path="device/huawei/berlin" name="android_device_huawei_berlin" remote="github-peam" />
+    <project path="device/huawei/hi6250-8-common" name="android_device_huawei_hi6250-8-common" remote="iceows" revision="lineage-20.0" />
+    <project path="device/huawei/anne" name="android_device_huawei_anne" remote="iceows" revision="lineage-20.0" />
+    <project path="device/huawei/figo" name="android_device_huawei_figo" remote="iceows" revision="lineage-20.0" />
+    <project path="device/huawei/hi6250-9-common" name="android_device_huawei_hi6250-9-common" remote="iceows" revision="lineage-20.0" />
+    
+    <!-- sepolicy -->
+    <project path="device/hisi/sepolicy" name="android_device_hisi_sepolicy" remote="iceows" revision="lineage-20.0" />
+
+    <!-- hardware -->
+    <project path="hardware/hisi" name="android_hardware_hisi" remote="iceows" revision="lineage-20.0" />
+    <project path="hardware/huawei" name="android_hardware_huawei" remote="iceows" />
+    
+    <!-- kernel -->
+    <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="iceows" revision="lineage-20.0" />
+    <project path="kernel/huawei/hi6250-9" name="android_kernel_huawei_hi6250-9" remote="iceows" revision="lineage-20.0" />
+    
+    <!-- clang -->
+    <project path="prebuilts/clang/host/linux-x86/clang-r416183b1" name="android_prebuilts_clang_host_linux-x86_clang-r416183b1" remote="iceows" revision="main" />
+ 
+
+</manifest>
