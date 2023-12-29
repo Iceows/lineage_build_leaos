@@ -51,7 +51,7 @@ WITH_SU=true
 START=`date +%s`
 BUILD_DATE="$(date +%Y%m%d)"
 
-export OUT_DIR=/home/iceows/build/LeaOS
+export OUT_DIR=~/build/LeaOS
 
 
 prep_build() {
