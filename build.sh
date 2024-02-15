@@ -77,16 +77,20 @@ prep_build() {
     mkdir -p ./build-output
     echo ""
 
-    repopick 321337 -f # Deprioritize important developer notifications
-    repopick 321338 -f # Allow disabling important developer notifications
-    repopick 321339 -f # Allow disabling USB notifications
-    repopick 340916 # SystemUI: add burnIn protection
-    repopick 342860 # codec2: Use numClientBuffers to control the pipeline
-    repopick 342861 # CCodec: Control the inputs to avoid pipeline overflow
-    repopick 342862 # [WA] Codec2: queue a empty work to HAL to wake up allocation thread
-    repopick 342863 # CCodec: Use pipelineRoom only for HW decoder
-    repopick 342864 # codec2: Change a Info print into Verbose
-
+    if [ ${MODE} == "device" ]
+    then
+      echo "no repo pick for device"
+    else
+      repopick 321337 -f # Deprioritize important developer notifications
+      repopick 321338 -f # Allow disabling important developer notifications
+      repopick 321339 -f # Allow disabling USB notifications
+      repopick 340916 # SystemUI: add burnIn protection
+      repopick 342860 # codec2: Use numClientBuffers to control the pipeline
+      repopick 342861 # CCodec: Control the inputs to avoid pipeline overflow
+      repopick 342862 # [WA] Codec2: queue a empty work to HAL to wake up allocation thread
+      repopick 342863 # CCodec: Use pipelineRoom only for HW decoder
+      repopick 342864 # codec2: Change a Info print into Verbose      
+    fi
 
 }
 
@@ -96,12 +100,6 @@ apply_patches() {
 }
 
 prep_device() {
-
-    # EMUI 8
-    # cd hardware/lineage/compat
-    # git fetch https://github.com/LineageOS/android_hardware_lineage_compat refs/changes/13/361913/9
-    # git cherry-pick FETCH_HEAD
-    # cd ../../../
 
     # EMUI 9
     unzip -o ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware
@@ -162,14 +160,14 @@ else
     echo "Prep build" 
     prep_build
     prep_${MODE}
-    
-    echo "Applying patches"    
-    
+ 
     if [ ${MODE} == "device" ]
     then
+        echo "Applying patches device"
     	apply_patches patches_device
     	apply_patches patches_device_iceows
     else
+        echo "Applying patches treble"
     	apply_patches patches_platform
 	apply_patches patches_treble
 	apply_patches patches_platform_personal
