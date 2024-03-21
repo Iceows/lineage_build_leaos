@@ -41,7 +41,6 @@
     <!-- vendor -->
     <project path="vendor/huawei/prague" name="android_vendor_huawei_prague" remote="iceows" revision="lineage-20.0" />
     <project path="vendor/huawei/warsaw" name="android_vendor_huawei_warsaw" remote="iceows" revision="lineage-20.0" />
-    <project path="vendor/huawei/berlin" name="proprietary_vendor_huawei_berlin" remote="github-peam"/>
     <project path="vendor/huawei/hi6250-8-common" name="android_vendor_huawei_hi6250-8-common" remote="iceows" revision="lineage-20.0" />
     <project path="vendor/huawei/anne" name="android_vendor_huawei_anne" remote="iceows" revision="lineage-20.0" />
     <project path="vendor/huawei/figo" name="android_vendor_huawei_figo" remote="iceows" revision="lineage-20.0" />
@@ -50,7 +49,6 @@
     <!-- device -->
     <project path="device/huawei/prague" name="android_device_huawei_prague" remote="iceows" revision="lineage-20.0" />
     <project path="device/huawei/warsaw" name="android_device_huawei_warsaw" remote="iceows" revision="lineage-20.0" />
-    <project path="device/huawei/berlin" name="android_device_huawei_berlin" remote="github-peam" />
     <project path="device/huawei/hi6250-8-common" name="android_device_huawei_hi6250-8-common" remote="iceows" revision="lineage-20.0" />
     <project path="device/huawei/anne" name="android_device_huawei_anne" remote="iceows" revision="lineage-20.0" />
     <project path="device/huawei/figo" name="android_device_huawei_figo" remote="iceows" revision="lineage-20.0" />
