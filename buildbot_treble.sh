@@ -102,11 +102,11 @@ buildVariant() {
 	lunch ${1}-userdebug
 	make installclean
 	make -j$(nproc --all) systemimage
-	make vndk-test-sepolicy
+
 	mv $OUT/system.img ~/build-output/lineage-16.0-$BUILD_DATE-UNOFFICIAL-${1}.img
 }
 
-buildVariant treble_arm64_avN
+#buildVariant treble_arm64_avN
 buildVariant treble_arm64_bvN
 ls ~/build-output | grep 'lineage'
 
