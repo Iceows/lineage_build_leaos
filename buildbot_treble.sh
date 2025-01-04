@@ -18,7 +18,7 @@ echo\
 
 START=`date +%s`
 BUILD_DATE="$(date +%Y%m%d)"
-BL=$PWD/treble_build_los
+BL=$PWD/lineage_build_leaos
 
 echo "Preparing local manifest"
 mkdir -p .repo/local_manifests
@@ -42,7 +42,7 @@ cd device/phh/treble
 git clean -fdx
 bash generate.sh lineage
 cd ../../..
-bash ./treble_build_los/apply_patches.sh treble_patches/patches
+bash $BL/apply_patches.sh lineage_patches_leaos/patches
 echo ""
 
 echo "Applying universal patches"
