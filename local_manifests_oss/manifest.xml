@@ -9,7 +9,7 @@
 
 
   <!-- FLOSS IMS support -->
-  <project path="packages/apps/GcamGo" name="android_packages_apps_Grebuilt" remote="iceows" revision="main" />
+  <project path="packages/apps/GcamGo" name="android_packages_apps_GCamGOPrebuilt" remote="iceows" revision="main" />
   
   <!-- OSS Repo -->
     <remote name="github-hisi"
