@@ -43,12 +43,12 @@
     <project path="device/huawei/prague" name="android_device_huawei_prague" remote="iceows" revision="lineage-20.0" />
     <project path="device/huawei/hi6250-8-common" name="android_device_huawei_hi6250-8-common-hisi" remote="iceows" revision="lineage-20" />
 
-    <!--    
+    <!--    -->
     <project path="device/huawei/potter" name="android_device_huawei_potter" remote="iceows" revision="lineage-20" />
-    <project path="device/huawei/kirin710-common" name="android_device_huawei_kirin710-9-common" remote="iceows" revision="lineage-20" />
-    <project path="vendor/huawei/kirin710-common" name="android_vendor_huawei_kirin710-9-common" remote="iceows" revision="lineage-20" />
+    <project path="device/huawei/kirin710-9-common" name="android_device_huawei_kirin710-9-common" remote="iceows" revision="lineage-20" />
+    <project path="vendor/huawei/kirin710-9-common" name="android_vendor_huawei_kirin710-9-common" remote="iceows" revision="lineage-20" />
     <project path="vendor/huawei/potter" name="android_vendor_huawei_potter" remote="iceows" revision="lineage-20" />
-    -->
+
 
     <!-- hardware -->
     <!-- 
@@ -69,7 +69,8 @@
     <project path="kernel/huawei/hi6250-9" name="android_kernel_huawei_hi6250-9" remote="iceows" revision="lineage-20.0" />
     <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="github-hisi" revision="lineage-20" />
     <project path="kernel/huawei/hi3660" name="android_kernel_huawei_hi3660" remote="huawei-dev" revision="android@13" />
-
+    <project path="kernel/huawei/kirin710" name="android_kernel_huawei_kirin710" remote="huawei-dev" revision="android@13" />
+    
     <!-- vendor -->
     <project path="vendor/huawei/stanford" name="proprietary_vendor_huawei_stanford" remote="github-hisi" revision="lineage-20" />
     <project path="vendor/huawei/hi3660-common" name="android_vendor_huawei_hi3660-common" remote="iceows" revision="lineage-20.0" />
