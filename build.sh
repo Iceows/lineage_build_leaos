@@ -72,10 +72,10 @@ prep_build() {
         echo "apply R_asb"
 	repopick -it R_asb_2024-03
 	repopick -it R_asb_2024-04
-	#repopick -it R_asb_2024-05
-	#repopick -it R_asb_2024-06 -e 394554,394553
-	#repopick -it R_asb_2024-07
-	#repopick -it R_asb_2024-08
+	repopick -it R_asb_2024-05
+	repopick -it R_asb_2024-06 -e 394554,394553
+	repopick -it R_asb_2024-07
+	repopick -it R_asb_2024-08
 	#repopick -it R_asb_2024-09 -e 403223,403218
 	#repopick -it R_asb_2024-10
 	#repopick -it R_asb_2024-11
