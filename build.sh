@@ -67,20 +67,22 @@ prep_build() {
 	
     if [ ${MODE} == "device" ]
     then
-	echo "no repo pick for device"
+	echo "No repo pick for device"
     else
-        echo "apply R_asb"
+        echo "Apply R_asb_202x without DO NOT MERGE patch"
 	repopick -it R_asb_2024-03
 	repopick -it R_asb_2024-04
 	repopick -it R_asb_2024-05
 	repopick -it R_asb_2024-06 -e 394554,394553
 	repopick -it R_asb_2024-07
 	repopick -it R_asb_2024-08
-	#repopick -it R_asb_2024-09 -e 403223,403218
-	#repopick -it R_asb_2024-10
-	#repopick -it R_asb_2024-11
-	#repopick -it R_asb_2024-12
+	repopick -it R_asb_2024-09 -e 403223,403224,403225,403218
+	repopick -it R_asb_2024-10
+	repopick -it R_asb_2024-11
+	repopick -it R_asb_2024-12
 	#repopick -it R_asb_2025-01
+	#repopick -it R_asb_2025-02
+	#repopick -it R_asb_2025-03
     fi
 
 
