@@ -80,9 +80,9 @@ prep_build() {
 	repopick -it R_asb_2024-10
 	repopick -it R_asb_2024-11
 	repopick -it R_asb_2024-12
-	#repopick -it R_asb_2025-01
-	#repopick -it R_asb_2025-02
-	#repopick -it R_asb_2025-03
+	repopick -it R_asb_2025-01  -e 415707,415716,415715,415714,416443
+	repopick -it R_asb_2025-02
+	repopick -it R_asb_2025-03
     fi
 
 
