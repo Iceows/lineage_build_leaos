@@ -51,13 +51,16 @@
     <project path="vendor/huawei/potter" name="android_vendor_huawei_potter" remote="iceows" revision="lineage-20" />
     -->
 
+    <!-- Apps 
+    <project path="packages/apps/FMRadio-Hisi" name="android_packages_apps_FMRadio-Hisi" remote="iceows" revision="main" />    
+    -->
+    
     <!-- hardware -->
     <!-- 
     <project path="hardware/hisi" name="android_hardware_hisi-hisi" remote="iceows" revision="lineage-20" />
     <project path="hardware/huawei" name="android_hardware_huawei-hisi" remote="iceows" revision="lineage-20" />
     -->
     <project path="hardware/hisi" name="android_hardware_hisi" remote="iceows" revision="lineage-20.0" />
-    <project path="hardware/hisi_fm" name="android_hardware_hisi_fm" remote="iceows" revision="lineage-20.0" />
     <project path="hardware/huawei" name="android_hardware_huawei" remote="iceows" revision="lineage-20.0" />
     
      <!-- sepolicy -->
@@ -73,6 +76,8 @@
     <project path="kernel/huawei/kirin710" name="android_kernel_huawei_kirin710" remote="huawei-dev" revision="android@13" />
     
     <!-- vendor -->
+    <project path="vendor/hisi/opensource/fm-commonsys" name="android_vendor_hisi_opensource_fm-commonsys" remote="huawei-dev" revision="lineage-20" />
+    
     <project path="vendor/huawei/stanford" name="proprietary_vendor_huawei_stanford" remote="github-hisi" revision="lineage-20" />
     <project path="vendor/huawei/hi3660-common" name="android_vendor_huawei_hi3660-common" remote="iceows" revision="lineage-20.0" />
 
