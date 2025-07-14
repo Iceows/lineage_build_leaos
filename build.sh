@@ -81,11 +81,11 @@ prep_build() {
     then
 	echo "no repo pick for device"
     else
-	repopick -t 13-taro-kalama -r -f
-	repopick 321337 -r -f # Deprioritize important developer notifications
-	repopick 321338 -r -f # Allow disabling important developer notifications
-	repopick 321339 -r -f # Allow disabling USB notifications
-	repopick 340916 -r # SystemUI: add burnIn protection     
+    	repopick -t 13-burnin -r -f
+    	repopick -t 13-taro-kalama -r -f
+   	repopick 321337 -r -f # Deprioritize important developer notifications
+  	repopick 321338 -r -f # Allow disabling important developer notifications
+ 	repopick 321339 -r -f # Allow disabling USB notifications    
     fi
 }
 
@@ -143,8 +143,9 @@ build_treble() {
     lunch lineage_${TARGET}-userdebug
     make -j$(nproc --all) installclean
     make -j$(nproc --all) systemimage
-    #make -j$(nproc --all) target-files-package otatools
 
+    # To sign LOS, just add vendor/extra repo with signed keys in the tree
+    #make -j$(nproc --all) target-files-package otatools
     #bash ./lineage_build_leaos/sign.sh "vendor/extra/keys" $OUT/signed-target_files.zip
     #unzip -jqo $OUT/signed-target_files.zip IMAGES/system.img -d $OUT
     mv $OUT/system.img ./build-output/LeaOS-20.0-$BUILD_DATE-${TARGET}.img
