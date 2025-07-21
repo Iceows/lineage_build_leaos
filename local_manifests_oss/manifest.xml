@@ -50,6 +50,16 @@
     <project path="vendor/huawei/kirin710-9-common" name="android_vendor_huawei_kirin710-9-common" remote="iceows" revision="lineage-20" />
     <project path="vendor/huawei/potter" name="android_vendor_huawei_potter" remote="iceows" revision="lineage-20" />
     -->
+    
+        
+    <!--  OpenKirin huawei-dev device-tree    
+    <project path="device/huawei/potter" name="android_device_huawei_potter" remote="huawei-dev" revision="android@13" />
+    <project path="device/huawei/harry" name="android_device_huawei_harry" remote="huawei-dev" revision="android@13" />    
+    <project path="device/huawei/kirin710-9-common" name="android_device_huawei_kirin710-9-common" remote="huawei-dev" revision="android@13" />
+    <project path="vendor/huawei/kirin710-9-common" name="android_vendor_huawei_kirin710-9-common" remote="huawei-dev" revision="android@13" />
+    <project path="vendor/huawei/potter" name="android_vendor_huawei_potter" remote="huawei-dev" revision="android@13" />    
+    <project path="vendor/huawei/harry" name="android_vendor_huawei_harry" remote="huawei-dev" revision="android@13" />   
+    --> 
 
     <!-- Apps 
     <project path="packages/apps/FMRadio-Hisi" name="android_packages_apps_FMRadio-Hisi" remote="iceows" revision="main" />    
