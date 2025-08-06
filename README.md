@@ -3,6 +3,9 @@
 
 To get started with building LineageOS GSI, you'll need to get familiar with [Git and Repo](https://source.android.com/source/using-repo.html), and set up your environment by referring to [LineageOS Wiki](https://wiki.lineageos.org/devices/redfin/build) (mainly "Install the build packages") and [How to build a GSI](https://github.com/phhusson/treble_experimentations/wiki/How-to-build-a-GSI%3F).
 
+Setup also java jdk 17
+
+   sudo apt-get update && sudo apt-get -y install openjdk-17-jdk 
 
 First, open a new Terminal window, create a new working directory for your LineageOS build (leaos for example) and navigate to it:
 
