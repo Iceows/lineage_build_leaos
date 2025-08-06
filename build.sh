@@ -153,9 +153,9 @@ build_treble() {
     make -j$(nproc --all) systemimage
 
     # To sign LOS, just add vendor/extra repo with signed keys in the tree
-    #make -j$(nproc --all) target-files-package otatools
-    #bash ./lineage_build_leaos/sign.sh "vendor/extra/keys" $OUT/signed-target_files.zip
-    #unzip -jqo $OUT/signed-target_files.zip IMAGES/system.img -d $OUT
+    make -j$(nproc --all) target-files-package otatools
+    bash ./lineage_build_leaos/sign.sh "vendor/extra/keys" $OUT/signed-target_files.zip
+    unzip -jqo $OUT/signed-target_files.zip IMAGES/system.img -d $OUT
     mv $OUT/system.img ./build-output/LeaOS-20.0-$BUILD_DATE-${TARGET}.img
 }
 
