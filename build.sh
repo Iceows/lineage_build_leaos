@@ -120,6 +120,14 @@ finalize_treble() {
     cd ../../..
 }
 
+build_treble_app() {
+    cd treble_app
+    bash build.sh release
+    cp TrebleApp.apk ../vendor/hardware_overlay/TrebleApp/app.apk
+    cd ..
+    echo
+}
+
 build_device() {
 
       	# croot
@@ -191,6 +199,8 @@ do
     then
         continue
     fi
+    echo "Build Iceows TrebleApp " 
+    build_treble_app
     echo "Starting personal " || echo " build for ${MODE} ${var}"
     build_${MODE} ${var}
 done

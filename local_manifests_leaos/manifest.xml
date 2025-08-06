@@ -27,4 +27,7 @@
   <!-- FMRadio Hisi support -->
   <project path="packages/apps/FMRadio-Hisi" name="android_packages_apps_FMRadio-Hisi" remote="iceows" revision="main" />
  
+   <!-- TrebleApp -->
+  <project path="treble_app" name="treble_app_iceows" remote="iceows" revision="main" />   
+   
 </manifest>
