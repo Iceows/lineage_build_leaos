@@ -1,4 +1,4 @@
-subject='/C=FR/ST=Paris/L=Paris/O=Android/OU=Android/CN=Leaos/emailAddress=admin@iceows.com'
+subject='/C=FR/ST=France/L=Paris/O=Iceows/OU=IT/CN=Iceows compagny/emailAddress=admin@iceows.com'
 mkdir ~/.android-certs
 for cert in bluetooth cyngn-app media networkstack nfc platform releasekey sdk_sandbox shared testcert testkey verity; do \
     ./development/tools/make_key ~/.android-certs/$cert "$subject"; \
