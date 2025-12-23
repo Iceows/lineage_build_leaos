@@ -1,7 +1,9 @@
 #!/bin/bash
 echo ""
-echo "LineageOS 20.x Unified Buildbot - LeaOS version"
+echo "LineageOS 21.x Unified Buildbot - LeaOS version"
 echo "Executing in 5 seconds - CTRL-C to exit"
+echo "You must init repo with this cmd"
+echo "repo init -u https://github.com/LOS21-pre-QPR2/android.git -b lineage-21.0 --git-lfs"
 echo ""
 sleep 5
 
@@ -81,11 +83,8 @@ prep_build() {
     then
 	echo "no repo pick for device"
     else
-    	repopick -t 13-burnin -r -f
-    	repopick -t 13-taro-kalama -r -f
-   	repopick 321337 -r -f # Deprioritize important developer notifications
-  	repopick 321338 -r -f # Allow disabling important developer notifications
- 	repopick 321339 -r -f # Allow disabling USB notifications    
+        # Make picks here only if the target repo uses its original remote
+	echo "no repo pick for treble"
     fi
 }
 
@@ -125,6 +124,10 @@ build_treble_app() {
     bash build.sh release
     cp TrebleApp.apk ../vendor/hardware_overlay/TrebleApp/app.apk
     cd ..
+    cd vendor/hardware_overlay
+    git add TrebleApp/app.apk
+    git commit -m "[TEMP] Up TrebleApp to $BUILD_DATE"
+    cd ../..
     echo
 }
 
@@ -179,19 +182,19 @@ else
     echo "Prep build" 
     prep_build
     prep_${MODE}
- 
+
     if [ ${MODE} == "device" ]
     then
         echo "Applying patches device"
-    	apply_patches patches_device
-    	apply_patches patches_device_iceows
+    	apply_patches patches_${MODE}
+    	apply_patches patches_${MODE}_iceows
     else
         echo "Applying patches treble"
     	apply_patches patches_platform
-	apply_patches patches_treble
+	apply_patches patches_${MODE}
 	apply_patches patches_platform_personal
-	apply_patches patches_treble_personal
-	apply_patches patches_treble_iceows
+	apply_patches patches_${MODE}_personal
+	apply_patches patches_${MODE}_iceows
     fi
     finalize_${MODE}
     echo ""
