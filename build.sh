@@ -140,20 +140,23 @@ build_device() {
       	#mka bootimage 2>&1 | tee make_anne.log 
       	#mka recoveryimage 2>&1
         brunch ${1}
-        mv $OUT/lineage-*.zip ./build-output/LeaOS-OSS-20.0-$BUILD_DATE-${1}.zip
+        mv $OUT/lineage-*.zip ./build-output/LeaOS-OSS-21.0-$BUILD_DATE-${1}.zip
 
 }
 
 build_treble() {
 
-    echo "Build Iceows TrebleApp " 
-    build_treble_app
-    
-    echo "Build Lineage LOS20 " 
+   
+    echo "Build Lineage LOS21 " 
     case "${1}" in
         ("64VN") TARGET=arm64_bvN;;
         ("64VS") TARGET=arm64_bvS;;
         ("64GN") TARGET=arm64_bgN;;
+        ("64GS") TARGET=arm64_bgS;;
+        ("64YN") TARGET=arm64_byN;;
+        ("64YS") TARGET=arm64_byS;;
+        ("64EN") TARGET=arm64_beN;;
+        ("64ES") TARGET=arm64_beS;;
         (*) echo "Invalid target - exiting"; exit 1;;
     esac
     lunch lineage_${TARGET}-userdebug
@@ -164,7 +167,7 @@ build_treble() {
     # make -j$(nproc --all) target-files-package otatools
     # bash ./lineage_build_leaos/sign.sh "vendor/extra/keys" $OUT/signed-target_files.zip
     # unzip -jqo $OUT/signed-target_files.zip IMAGES/system.img -d $OUT
-    mv $OUT/system.img ./build-output/LeaOS-20.0-$BUILD_DATE-${TARGET}.img
+    mv $OUT/system.img ./build-output/LeaOS-21.0-$BUILD_DATE-${TARGET}.img
 }
 
 if ${NOSYNC}
@@ -198,6 +201,9 @@ else
     fi
     finalize_${MODE}
     echo ""
+    
+    echo "Build Iceows TrebleApp " 
+    build_treble_app
 fi
 
 
