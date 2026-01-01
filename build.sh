@@ -153,6 +153,8 @@ build_treble() {
         ("64VS") TARGET=arm64_bvS;;
         ("64GN") TARGET=arm64_bgN;;
         ("64GS") TARGET=arm64_bgS;;
+        ("64ON") TARGET=arm64_boN;;
+        ("64OS") TARGET=arm64_boS;;
         ("64YN") TARGET=arm64_byN;;
         ("64YS") TARGET=arm64_byS;;
         ("64EN") TARGET=arm64_beN;;
