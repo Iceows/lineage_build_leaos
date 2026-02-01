@@ -95,10 +95,6 @@ apply_patches() {
 
 prep_device() {
 
-    # EMUI 9
-    unzip -o ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware
-    # EMUI 8
-    unzip -o ./vendor/huawei/hi6250-8-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-8-common/proprietary/vendor/firmware
     :
 }
 
@@ -204,8 +200,11 @@ else
     finalize_${MODE}
     echo ""
     
-    echo "Build Iceows TrebleApp " 
-    build_treble_app
+    if [ ${MODE} == "treble" ]
+    then
+        echo "Build Iceows TrebleApp " 
+        build_treble_app
+    fi
 fi
 
 
