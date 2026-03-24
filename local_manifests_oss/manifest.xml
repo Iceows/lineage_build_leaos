@@ -26,7 +26,7 @@
 
     <remote name="huawei-dev"
             fetch="https://github.com/Huawei-Dev"
-            revision="android@13" />
+            revision="android@14" />
 
     <!-- device -->
     <!-- 
@@ -53,12 +53,12 @@
     
         
     <!--  OpenKirin huawei-dev device-tree    
-    <project path="device/huawei/potter" name="android_device_huawei_potter" remote="huawei-dev" revision="android@13" />
-    <project path="device/huawei/harry" name="android_device_huawei_harry" remote="huawei-dev" revision="android@13" />    
-    <project path="device/huawei/kirin710-9-common" name="android_device_huawei_kirin710-9-common" remote="huawei-dev" revision="android@13" />
-    <project path="vendor/huawei/kirin710-9-common" name="android_vendor_huawei_kirin710-9-common" remote="huawei-dev" revision="android@13" />
-    <project path="vendor/huawei/potter" name="android_vendor_huawei_potter" remote="huawei-dev" revision="android@13" />    
-    <project path="vendor/huawei/harry" name="android_vendor_huawei_harry" remote="huawei-dev" revision="android@13" />   
+    <project path="device/huawei/potter" name="android_device_huawei_potter" remote="huawei-dev" revision="android@14" />
+    <project path="device/huawei/harry" name="android_device_huawei_harry" remote="huawei-dev" revision="android@14" />    
+    <project path="device/huawei/kirin710-9-common" name="android_device_huawei_kirin710-9-common" remote="huawei-dev" revision="android@14" />
+    <project path="vendor/huawei/kirin710-9-common" name="android_vendor_huawei_kirin710-9-common" remote="huawei-dev" revision="android@14" />
+    <project path="vendor/huawei/potter" name="android_vendor_huawei_potter" remote="huawei-dev" revision="android@14" />    
+    <project path="vendor/huawei/harry" name="android_vendor_huawei_harry" remote="huawei-dev" revision="android@14" />   
     --> 
 
     <!-- Apps 
@@ -82,8 +82,8 @@
     -->
     <project path="kernel/huawei/hi6250-9" name="android_kernel_huawei_hi6250-9" remote="iceows" revision="lineage-20.0" />
     <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="github-hisi" revision="lineage-20" />
-    <project path="kernel/huawei/hi3660" name="android_kernel_huawei_hi3660" remote="huawei-dev" revision="android@13" />
-    <project path="kernel/huawei/kirin710" name="android_kernel_huawei_kirin710" remote="huawei-dev" revision="android@13" />
+    <project path="kernel/huawei/hi3660" name="android_kernel_huawei_hi3660" remote="huawei-dev" revision="android@14" />
+    <project path="kernel/huawei/kirin710" name="android_kernel_huawei_kirin710" remote="huawei-dev" revision="android@14" />
     
     <!-- vendor -->
     <project path="vendor/hisi/opensource/fm-commonsys" name="android_vendor_hisi_opensource_fm-commonsys" remote="huawei-dev" revision="lineage-20" />
