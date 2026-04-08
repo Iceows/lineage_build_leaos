@@ -83,7 +83,6 @@
     <project path="kernel/huawei/hi6250-9" name="android_kernel_huawei_hi6250-9" remote="iceows" revision="lineage-20.0" />
     <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="github-hisi" revision="lineage-20" />
     <project path="kernel/huawei/hi3660" name="android_kernel_huawei_hi3660" remote="huawei-dev" revision="android@14" />
-    <project path="kernel/huawei/kirin710" name="android_kernel_huawei_kirin710" remote="huawei-dev" revision="android@14" />
     
     <!-- vendor -->
     <project path="vendor/hisi/opensource/fm-commonsys" name="android_vendor_hisi_opensource_fm-commonsys" remote="huawei-dev" revision="lineage-20" />
@@ -98,9 +97,9 @@
     <project path="vendor/huawei/prague" name="android_vendor_huawei_prague" remote="iceows" revision="lineage-20.0" />
     <project path="vendor/huawei/hi6250-8-common" name="android_vendor_huawei_hi6250-8-common" remote="iceows" revision="lineage-20.0" />
 
-    <!-- clang -->
+    <!-- clang 
     <project path="prebuilts/clang/host/linux-x86/clang-r416183b1" name="android_prebuilts_clang_host_linux-x86_clang-r416183b1" remote="iceows" revision="main" />
     <project path="prebuilts/clang/host/linux-x86/clang-r346389c" name="android_prebuilts_clang_host_linux-x86_clang-r346389c" remote="iceows" revision="main" />
     <project path="prebuilts/clang/host/linux-x86/clang-r353983c" name="android_prebuilts_clang_host_linux-x86_clang-r353983c" remote="iceows" revision="main" />
-    
+    -->
 </manifest>

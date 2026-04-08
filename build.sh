@@ -67,9 +67,10 @@ prep_build() {
     fi
     
     echo ""
+    # repo init -u https://github.com/LineageOS/android.git -b lineage-21.0 --git-lfs  --depth=1
     
     echo "Syncing repos"
-    repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
+    repo sync -c --force-sync --no-clone-bundle --no-tags -j8
     echo ""
 
     echo "Setting up build environment"
