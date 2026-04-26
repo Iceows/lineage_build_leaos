@@ -83,7 +83,7 @@
     <project path="kernel/huawei/hi6250-9" name="android_kernel_huawei_hi6250-9" remote="iceows" revision="lineage-20.0" />
     <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="github-hisi" revision="lineage-20" />
     <project path="kernel/huawei/hi3660" name="android_kernel_huawei_hi3660" remote="huawei-dev" revision="android@13" />
-    <project path="kernel/huawei/kirin710" name="android_kernel_huawei_kirin710" remote="huawei-dev" revision="android@13" />
+    <project path="kernel/huawei/kirin710" name="android_kernel_huawei_kirin710" remote="huawei-dev" revision="emui1013" />
     
     <!-- vendor -->
     <project path="vendor/hisi/opensource/fm-commonsys" name="android_vendor_hisi_opensource_fm-commonsys" remote="huawei-dev" revision="lineage-20" />
