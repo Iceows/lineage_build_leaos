@@ -97,10 +97,6 @@ apply_patches() {
 
 prep_device() {
 
-    # EMUI 9
-    unzip -o ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-9-common/proprietary/vendor/firmware
-    # EMUI 8
-    unzip -o ./vendor/huawei/hi6250-8-common/proprietary/vendor/firmware/isp_dts.zip -d ./vendor/huawei/hi6250-8-common/proprietary/vendor/firmware
     :
 }
 
@@ -138,7 +134,7 @@ build_device() {
       	#mka bootimage 2>&1 | tee make_anne.log 
       	#mka recoveryimage 2>&1
         brunch ${1}
-        mv $OUT/lineage-*.zip ./build-output/LeaOS-OSS-20.0-$BUILD_DATE-${1}.zip
+        mv $OUT/lineage-*.zip ./build-output/LeaOS-OSS-21.0-$BUILD_DATE-${1}.zip
 
 }
 
@@ -162,7 +158,7 @@ build_treble() {
     # make -j$(nproc --all) target-files-package otatools
     # bash ./lineage_build_leaos/sign.sh "vendor/extra/keys" $OUT/signed-target_files.zip
     # unzip -jqo $OUT/signed-target_files.zip IMAGES/system.img -d $OUT
-    mv $OUT/system.img ./build-output/LeaOS-20.0-$BUILD_DATE-${TARGET}.img
+    mv $OUT/system.img ./build-output/LeaOS-21.0-$BUILD_DATE-${TARGET}.img
 }
 
 if ${NOSYNC}

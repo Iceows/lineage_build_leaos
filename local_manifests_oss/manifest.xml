@@ -14,15 +14,7 @@
   <!-- OSS Repo -->
     <remote name="github-hisi"
             fetch="https://github.com/hisi-oss"
-            revision="lineage-20" />
-
-    <remote name="gitlab-hisi"
-            fetch="https://gitlab.com/itsvixano-dev/android/hisi-oss"
-            revision="lineage-20" />
-            
-    <remote name="github-peam"
-            fetch="https://github.com/Peam269"
-            revision="lineage-20" />
+            revision="lineage-21" />
 
     <remote name="huawei-dev"
             fetch="https://github.com/Huawei-Dev"
@@ -33,15 +25,6 @@
     <project path="device/huawei/anne" name="android_device_huawei_anne-hisi" remote="iceows" revision="lineage-20" />
     <project path="device/huawei/hi6250-9-common" name="android_device_huawei_hi6250-9-common-hisi" remote="iceows" revision="lineage-20" />  
     -->
-    <project path="device/huawei/anne" name="android_device_huawei_anne" remote="iceows" revision="lineage-20.0" />
-    <project path="device/huawei/figo" name="android_device_huawei_figo" remote="iceows" revision="lineage-20.0" />
-    <project path="device/huawei/hi6250-9-common" name="android_device_huawei_hi6250-9-common" remote="iceows" revision="lineage-20.0" />
-    
-    <project path="device/huawei/stanford" name="android_device_huawei_stanford" remote="iceows" revision="lineage-20" />
-    <project path="device/huawei/hi3660-common" name="android_device_huawei_hi3660-common-hisi" remote="iceows" revision="lineage-20" />
-
-    <project path="device/huawei/prague" name="android_device_huawei_prague" remote="iceows" revision="lineage-20.0" />
-    <project path="device/huawei/hi6250-8-common" name="android_device_huawei_hi6250-8-common-hisi" remote="iceows" revision="lineage-20" />
 
     <!--  My kirin710 device-tree
     <project path="device/huawei/potter" name="android_device_huawei_potter" remote="iceows" revision="lineage-20" />
@@ -52,50 +35,23 @@
     -->
     
         
-    <!--  OpenKirin huawei-dev device-tree    
+    <!--  OpenKirin huawei-dev device-tree     
+    <project path="device/huawei/charlotte" name="android_device_huawei_charlotte" remote="huawei-dev" revision="android@14" />
     <project path="device/huawei/potter" name="android_device_huawei_potter" remote="huawei-dev" revision="android@14" />
     <project path="device/huawei/harry" name="android_device_huawei_harry" remote="huawei-dev" revision="android@14" />    
-    <project path="device/huawei/kirin710-9-common" name="android_device_huawei_kirin710-9-common" remote="huawei-dev" revision="android@14" />
-    <project path="vendor/huawei/kirin710-9-common" name="android_vendor_huawei_kirin710-9-common" remote="huawei-dev" revision="android@14" />
+    <project path="device/huawei/kirin710" name="android_device_huawei_kirin710" remote="huawei-dev" revision="android@14" />
+    
+    <project path="vendor/huawei/kirin710" name="android_vendor_huawei_kirin710" remote="huawei-dev" revision="android@14" />
+    <project path="vendor/huawei/charlotte" name="android_vendor_huawei_charlotte" remote="huawei-dev" revision="android@14" />  
     <project path="vendor/huawei/potter" name="android_vendor_huawei_potter" remote="huawei-dev" revision="android@14" />    
     <project path="vendor/huawei/harry" name="android_vendor_huawei_harry" remote="huawei-dev" revision="android@14" />   
-    --> 
 
+   --> 
+   
     <!-- Apps 
     <project path="packages/apps/FMRadio-Hisi" name="android_packages_apps_FMRadio-Hisi" remote="iceows" revision="main" />    
     -->
     
-    <!-- hardware -->
-    <!-- 
-    <project path="hardware/hisi" name="android_hardware_hisi-hisi" remote="iceows" revision="lineage-20" />
-    <project path="hardware/huawei" name="android_hardware_huawei-hisi" remote="iceows" revision="lineage-20" />
-    -->
-    <project path="hardware/hisi" name="android_hardware_hisi" remote="iceows" revision="lineage-20.0" />
-    <project path="hardware/huawei" name="android_hardware_huawei" remote="iceows" revision="lineage-20.0" />
-    
-     <!-- sepolicy -->
-    <project path="device/hisi/sepolicy" name="android_device_hisi_sepolicy" remote="iceows" revision="lineage-20.0" />
-    
-    <!-- kernel -->
-    <!--
-    <project path="kernel/huawei/hi6250-9" name="android_kernel_huawei_hi6250-9-hisi" remote="iceows" revision="lineage-20" />
-    -->
-    <project path="kernel/huawei/hi6250-9" name="android_kernel_huawei_hi6250-9" remote="iceows" revision="lineage-20.0" />
-    <project path="kernel/huawei/hi6250-8" name="android_kernel_huawei_hi6250-8" remote="github-hisi" revision="lineage-20" />
-    <project path="kernel/huawei/hi3660" name="android_kernel_huawei_hi3660" remote="huawei-dev" revision="android@14" />
-    
-    <!-- vendor -->
-    <project path="vendor/hisi/opensource/fm-commonsys" name="android_vendor_hisi_opensource_fm-commonsys" remote="huawei-dev" revision="lineage-20" />
-    
-    <project path="vendor/huawei/stanford" name="proprietary_vendor_huawei_stanford" remote="github-hisi" revision="lineage-20" />
-    <project path="vendor/huawei/hi3660-common" name="android_vendor_huawei_hi3660-common" remote="iceows" revision="lineage-20.0" />
-
-    <project path="vendor/huawei/figo" name="android_vendor_huawei_figo" remote="iceows" revision="lineage-20.0" />
-    <project path="vendor/huawei/anne" name="android_vendor_huawei_anne" remote="iceows" revision="lineage-20.0" />
-    <project path="vendor/huawei/hi6250-9-common" name="android_vendor_huawei_hi6250-9-common" remote="iceows" revision="lineage-20.0" />
-
-    <project path="vendor/huawei/prague" name="android_vendor_huawei_prague" remote="iceows" revision="lineage-20.0" />
-    <project path="vendor/huawei/hi6250-8-common" name="android_vendor_huawei_hi6250-8-common" remote="iceows" revision="lineage-20.0" />
 
     <!-- clang 
     <project path="prebuilts/clang/host/linux-x86/clang-r416183b1" name="android_prebuilts_clang_host_linux-x86_clang-r416183b1" remote="iceows" revision="main" />
