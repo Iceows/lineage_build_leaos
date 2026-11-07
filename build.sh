@@ -183,7 +183,6 @@ else
     if [ ${MODE} == "device" ]
     then
         echo "Applying patches device"
-    	apply_patches patches_device
     	apply_patches patches_device_iceows
     else
         echo "Applying patches treble"
